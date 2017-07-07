@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Thu Jul 06 16:31:16 CST 2017
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=FLGame_SDK_V5.2.16.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|android-support-v4.jar>;<jar|okhttp-3.4.1.jar>;<jar|alipaySdk-20161222.jar>;<jar|okio-1.6.0.jar>;<jar|gson-2.2.1.jar>
+includes=

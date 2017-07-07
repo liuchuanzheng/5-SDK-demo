@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <RelativeLayout
+        android:id="@+id/re_loginbefore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+         >
+
+       
+        <CheckBox
+            android:id="@+id/cb_fastlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="快速登录" />
+
+        <CheckBox
+            android:id="@+id/cb_guestlogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="34dp"
+            android:checked="true"
+            android:text="游客登录" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cb_guestlogin"
+            android:layout_centerHorizontal="true"
+            android:text="登录" />
+
+        <CheckBox
+            android:id="@+id/cb_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/button1"
+            android:layout_alignParentRight="true"
+            android:text="关闭按钮" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/re_loginsuccess"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登录成功了" />
+
+         <EditText
+             android:id="@+id/et_name"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@+id/textView1"
+             android:ems="10"
+             android:hint="商品"
+             android:text="宝石" />
+
+         <EditText
+             android:id="@+id/et_price"
+             android:layout_width="150dp"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/et_screen"
+             android:layout_alignLeft="@+id/et_name"
+             android:layout_marginBottom="49dp"
+             android:ems="10"
+             android:hint="价格（分）"
+             android:text="1" />
+
+         <EditText
+             android:id="@+id/et_screen"
+             android:layout_width="150dp"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/textView1"
+             android:layout_alignLeft="@+id/et_price"
+             android:layout_marginBottom="17dp"
+             android:ems="10"
+             android:hint="screen"
+             android:text="0" >
+
+             <requestFocus />
+         </EditText>
+
+         <Button
+             android:id="@+id/btn_pay"
+             android:layout_width="150dp"
+             android:layout_height="wrap_content"
+             android:layout_alignRight="@+id/textView1"
+             android:layout_below="@+id/textView1"
+             android:layout_marginTop="35dp"
+             android:text="支付" />
+
+         <TextView
+             android:id="@+id/textView4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@+id/et_screen"
+             android:text="screen" />
+
+         <TextView
+             android:id="@+id/textView3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBaseline="@+id/et_price"
+             android:layout_alignBottom="@+id/et_price"
+             android:layout_alignParentLeft="true"
+             android:text="价格（分）" />
+
+         <TextView
+             android:id="@+id/textView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignBottom="@+id/et_name"
+             android:layout_alignParentLeft="true"
+             android:text="商品" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

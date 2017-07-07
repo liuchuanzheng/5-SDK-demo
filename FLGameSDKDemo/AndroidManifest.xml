@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.feiliu.flgamesdkdemo"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="22" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+     <!-- 允许一个程序打开窗口显示在其他所有程序的顶层 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    
+    <!-- 以下两个是模拟cp需要的权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+           <!-- 这部分是配置合作方接入配置信息,由飞流分配给用户 -->
+        <meta-data
+            android:name="FLGAMESDK_APP_KEY"
+            android:value="CFC3DF9F-FCA6-474D-A2D2-B7C3F09D5930" />
+        <meta-data
+            android:name="FLGAMESDK_APP_ID"
+            android:value="20008" />
+        <meta-data
+            android:name="FLGAMESDK_COMPANY_ID"
+            android:value="200000" />
+        <meta-data
+            android:name="FLGAMESDK_COOP_ID"
+            android:value="300021" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <!-- <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> -->
+            <!-- 飞流要求 start 用于标识游戏的主界面 ,飞流闪屏过后会开启此界面 -->
+            <intent-filter>
+                <action android:name="feiliu.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <!-- 飞流要求 end -->
+        </activity>
+        
+        <!-- 飞流闪屏和6.0权限适配activity -->
+        <activity
+            android:name="com.feiliu.flgamesdk.view.activity.FLSplashAndPermissionsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 闪屏图片名称 不用可删除此项 -->
+            <meta-data android:name="splashImageName" android:value="fl_splash.png" />
+            <!-- 闪屏时间  默认2000ms  不用可删除此项-->
+            <meta-data android:name="splashDuration" android:value="3000" />
+            <!-- cp想利用飞流SDK快速申请的6.0权限  中间用分号隔开, 不用可删除此项-->
+            <!-- 如下假如入cp想申请CAMERA和READ_CALENDAR权限,格式如下-->
+            <meta-data android:name="cpPermissions" android:value="android.permission.CAMERA;android.permission.READ_CALENDAR" />
+        </activity>
+        <!-- 飞流SDK activity -->
+         <activity
+            android:name="com.feiliu.flgamesdk.view.activity.FLSdkActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label=""
+            android:launchMode="standard"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+        </activity>
+        <!-- 支付宝相关antivity -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+		</activity>
+		<activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+ 		</activity>
+ 		
+    </application>
+
+</manifest>
